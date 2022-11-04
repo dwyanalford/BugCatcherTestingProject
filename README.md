@@ -1,6 +1,7 @@
 # BugCatcher Testing Project
 
-Testing the application for bugs both visual and logical. 
+Testing the application for bugs both visual and logical.
+
 ### Tested by Dwyan Alford.
 #### Testing with:
 1. Selenium

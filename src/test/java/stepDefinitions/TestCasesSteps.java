@@ -3,7 +3,6 @@ package stepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.bouncycastle.asn1.iso.ISOIECObjectIdentifiers;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import runners.WebDriverRunner;
@@ -15,7 +14,7 @@ public class TestCasesSteps {
         WebDriverRunner.loginPage.username.sendKeys("ryeGuy");
         WebDriverRunner.loginPage.password.sendKeys("coolbeans");
         WebDriverRunner.loginPage.loginButton.click();
-        Thread.sleep(1200);
+        Thread.sleep(250);
         WebDriverRunner.driver.findElement(By.xpath("//nav/a[2]")).click();
         System.out.println("Logged in as Tester and on Tester dashboard");
 
@@ -23,14 +22,14 @@ public class TestCasesSteps {
 
     @When("The tester types {string} into Description field")
     public void the_tester_types_into_description_field(String testDescription) throws InterruptedException {
-        Thread.sleep(1200);
+        Thread.sleep(250);
         WebDriverRunner.driver.findElement(By.xpath("//textarea[@name=\"desc\"]")).sendKeys(testDescription);
 
     }
 
     @When("The tester types into steps field")
     public void the_tester_types_into_steps_field() throws InterruptedException {
-        Thread.sleep(1200);
+        Thread.sleep(250);
         WebDriverRunner.driver.findElement(By.xpath("//textarea[@name=\"steps\"]")).sendKeys(
                 "1. My Test Case Step One  2. My Test Case Step Two.");
 
@@ -40,7 +39,7 @@ public class TestCasesSteps {
     @When("The tester presses the submit button")
     public void the_tester_presses_the_submit_button() throws InterruptedException {
         WebDriverRunner.driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
-        Thread.sleep(1200);
+        Thread.sleep(250);
 
     }
 
@@ -61,14 +60,14 @@ public class TestCasesSteps {
 
     @When("The tester presses on details")
     public void the_tester_presses_on_details() throws InterruptedException {
-        Thread.sleep(1200);
+        Thread.sleep(250);
         WebDriverRunner.driver.findElement(By.xpath("//table/tbody/tr[last()]/td[4]")).click();
     }
 
     @Then("A test case modal should appear showing the case ID")
     public void a_test_case_modal_should_appear_showing_the_case_id() throws InterruptedException {
         // get text of case ID field and show text
-        Thread.sleep(1200);
+        Thread.sleep(250);
         // Boolean caseInfo = WebDriverRunner.driver.findElement(By.xpath("//div[@role=\"dialog\"]/h3")).isDisplayed();
         Boolean caseInfo = WebDriverRunner.driver.switchTo().activeElement().isDisplayed();
         Assert.assertEquals(caseInfo, true);
@@ -92,7 +91,7 @@ public class TestCasesSteps {
 
     @Then("The Modal Should be closed")
     public void the_modal_should_be_closed() throws InterruptedException {
-        Thread.sleep(1500);
+        Thread.sleep(250);
         // if the Tester dashboard is active again we should be able to select an element on the page, if so, then the modal must be closed.
         Boolean isTesterDashboardActiveAgain = WebDriverRunner.driver.findElement(By.cssSelector("h1")).isDisplayed();
         Assert.assertEquals(isTesterDashboardActiveAgain, true);
@@ -115,7 +114,7 @@ public class TestCasesSteps {
     @Then("The fields should be uneditable")
     public void the_fields_should_be_uneditable() throws InterruptedException {
         //check to see if textarea is disabled, if yes then fields are uneditable
-        Thread.sleep(1200);
+        Thread.sleep(250);
         Boolean isTextAreaEnabled = WebDriverRunner.driver.findElement(By.xpath("//fieldset[1]/textarea[1]")).isEnabled();
         Assert.assertEquals(isTextAreaEnabled, false);
 
@@ -125,13 +124,13 @@ public class TestCasesSteps {
 
     @When("The tester clicks on the edit button")
     public void the_tester_clicks_on_the_edit_button() throws InterruptedException {
-        Thread.sleep(1200);
+        Thread.sleep(250);
         WebDriverRunner.driver.findElement(By.cssSelector("button")).click();
     }
 
     @Then("The test case fields should be editable")
     public void the_test_case_fields_should_be_editable() throws InterruptedException {
-        Thread.sleep(1500);
+        Thread.sleep(250);
         Boolean isTextAreaEnabled = WebDriverRunner.driver.findElement(By.xpath("//fieldset[1]/textarea[1]")).isEnabled();
         Assert.assertEquals(isTextAreaEnabled, true);
 
@@ -151,7 +150,7 @@ public class TestCasesSteps {
         WebDriverRunner.driver.findElement(By.xpath("//fieldset[1]/textarea[2]")).sendKeys(
                 "This is a new step for this case"
         );
-        Thread.sleep(1200);
+        Thread.sleep(250);
     }
 
     @When("The tester clicks on the automated check mark")
@@ -167,7 +166,7 @@ public class TestCasesSteps {
 
     @When("The tester selects FAIL for test result from drop down")
     public void the_tester_selects_fail_for_test_result_from_drop_down() throws InterruptedException {
-        Thread.sleep(1200);
+        Thread.sleep(250);
         WebDriverRunner.driver.findElement(By.xpath("//fieldset[2]/select")).click();
         WebDriverRunner.driver.findElement(By.xpath("//fieldset[2]/select/option[2]")).click();
 
@@ -188,7 +187,7 @@ public class TestCasesSteps {
 
     @Then("A confirmation prompt should appear")
     public void a_confirmation_prompt_should_appear() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(250);
 
         //if we can get text from alert, then the alert is there
         String alertText = WebDriverRunner.driver.switchTo().alert().getText();
@@ -200,14 +199,14 @@ public class TestCasesSteps {
 
     @When("The tester clicks on Ok")
     public void the_tester_clicks_on_ok() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(250);
         WebDriverRunner.driver.switchTo().alert().accept();
 
     }
 
     @Then("An alert says the test case has been saved")
     public void an_alert_says_the_test_case_has_been_saved() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(250);
         String alertSavedMessage = WebDriverRunner.driver.switchTo().alert().getText();
         Assert.assertEquals(alertSavedMessage, "Test Case has been Saved");
         WebDriverRunner.driver.switchTo().alert().accept();

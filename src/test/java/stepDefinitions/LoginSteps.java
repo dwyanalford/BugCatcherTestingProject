@@ -15,7 +15,7 @@ public class LoginSteps {
     @Given("The employee is on the login page")
     public void the_employee_is_on_the_login_page() throws InterruptedException {
         WebDriverRunner.driver.get("https://bugcatcher-jasdhir.coe.revaturelabs.com/?dev=8");
-        Thread.sleep(3000);
+        Thread.sleep(250);
     }
 
     @When("The employee types in {string} into the username input")
@@ -34,7 +34,7 @@ public class LoginSteps {
     public void the_employee_clicks_on_the_login_button() throws InterruptedException {
         System.out.println("user clicked on the button");
         WebDriverRunner.loginPage.loginButton.click();
-        Thread.sleep(3000);
+        Thread.sleep(250);
     }
     @Then("The employee should see an alert saying {string}")
     public void the_employee_should_see_an_alert_saying_they_have_the_wrong_password(String expectedAlertMessage) {
@@ -45,7 +45,7 @@ public class LoginSteps {
 
     @Then("the employee should be on the {string} page")
     public void the_employee_should_be_on_the_page(String role) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(250);
         String wordInTitle = WebDriverRunner.driver.findElement(By.cssSelector("h1")).getText().split(" ")[0];
 
         Assert.assertEquals(wordInTitle, role);
