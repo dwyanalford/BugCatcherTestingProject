@@ -1,3 +1,4 @@
+
 Feature: Test Cases
 
   Scenario: Add A Test Case
@@ -32,4 +33,22 @@ Feature: Test Cases
     Then A confirmation prompt should appear
     When The tester clicks on Ok
     Then An alert says the test case has been saved
+    Then The fields should be uneditable
+
+  Scenario: Reset Test Case
+    Given The tester is on the test case dashboard
+    When The tester presses on details
+    Then A test case modal should appear showing the case ID
+    When The Tester clicks on edit within the modal
+    Then The fields should be uneditable
+    Then The tester clicks on the edit button
+    Then The test case fields should be editable
+    When The tester types in a new description into the description text area
+    When The tester types in a new steps into the steps text area
+    When The tester clicks on the automated check mark
+    When The tester selects ryeGuy for performed from drop down
+    When The tester selects FAIL for test result from drop down
+    When The tester types in a new summary into the summary text area
+    When The tester clicks on the reset button
+    Then The fields should be populated to their old values
     Then The fields should be uneditable

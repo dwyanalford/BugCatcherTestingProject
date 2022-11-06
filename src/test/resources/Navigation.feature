@@ -1,3 +1,4 @@
+
 Feature: Navigation
 
   Background: Logged in as a Manager

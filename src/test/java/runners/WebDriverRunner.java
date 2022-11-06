@@ -7,23 +7,30 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-import pages.LoginPage;
+import pages.Logins;
+import pages.Navigation;
+import pages.TestersDashboard;
 
 @CucumberOptions(
         features = "src/test/resources/",
-    glue = {"stepDefinitions"})
+        glue = {"stepDefinitions"},
+        tags = "")
 
     public class WebDriverRunner extends AbstractTestNGCucumberTests {
         public static WebDriver driver;
-        public static LoginPage loginPage;
+        public static TestersDashboard TestersDashboard;
+        public static Navigation Navigation;
+        public static Logins Logins;
 
     @BeforeMethod // This method will run before each Cucumber scenario
     public void setup() {
         WebDriverManager.chromedriver().setup();
 
         driver = new ChromeDriver();
-        loginPage = new LoginPage(driver);
+        Logins = new Logins(driver);
+        TestersDashboard = new TestersDashboard(driver);
+        Navigation = new Navigation(driver);
+
     }
 
     @AfterMethod // This method will run after each Cucumber scenario

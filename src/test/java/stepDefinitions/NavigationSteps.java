@@ -7,20 +7,22 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import runners.WebDriverRunner;
 
+import static pages.Logins.*;
+
 public class NavigationSteps {
     @Given("The manager is logged in as a manager")
     public void the_manager_is_logged_in_as_a_manager() throws InterruptedException {
-        WebDriverRunner.driver.get("https://bugcatcher-jasdhir.coe.revaturelabs.com/?dev=8");
-        Thread.sleep(250);
-        WebDriverRunner.loginPage.username.sendKeys("g8tor");
-        WebDriverRunner.loginPage.password.sendKeys("chomp!");
-        WebDriverRunner.loginPage.loginButton.click();
+        WebDriverRunner.driver.get(loginURL);
+        Thread.sleep(150);
+        WebDriverRunner.Logins.username.sendKeys(managerUsername);
+        WebDriverRunner.Logins.password.sendKeys(managerPassword);
+        WebDriverRunner.Logins.loginButton.click();
         System.out.println("Login Success");
     }
 
     @Given("The manager is on the home page")
     public void the_manager_is_on_the_home_page() throws InterruptedException {
-        Thread.sleep(250);
+        Thread.sleep(150);
         String managerPageURL = WebDriverRunner.driver.getCurrentUrl();
         Assert.assertEquals(managerPageURL, "https://bugcatcher-jasdhir.coe.revaturelabs.com/managerhome");
         System.out.println("On Manager Page: " + managerPageURL);
@@ -41,7 +43,7 @@ public class NavigationSteps {
 
     @Then("The title of the page should be Matrix Page")
     public void the_title_of_the_page_should_be_matrix_page() throws InterruptedException {
-        Thread.sleep(250);
+        Thread.sleep(150);
         String pageTitle = WebDriverRunner.driver.getTitle();
         Assert.assertEquals(pageTitle, "Matrix Page");
     }
@@ -53,7 +55,7 @@ public class NavigationSteps {
 
     @Then("The manager should be on the home page and the title of page is Home")
     public void the_manager_should_be_on_the_home_page_and_the_title_of_page_is_home() throws InterruptedException {
-        Thread.sleep(250);
+        Thread.sleep(150);
         String homeTitle = WebDriverRunner.driver.findElement(By.cssSelector("h1")).getText();
         Assert.assertEquals(homeTitle, "Home");
         System.out.println("Actual :: " + homeTitle + ", Expected :: Home");
