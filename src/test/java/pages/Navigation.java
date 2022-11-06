@@ -21,6 +21,9 @@ public class Navigation {
     @FindBy(xpath = "//div/nav/a[4]")
     public WebElement DefectOverview;
 
+    @FindBy(xpath = "//div/nav/a[5]")
+    public WebElement Logout;
+
     @FindBy(xpath = "//div/nav/a[6]")
     public WebElement Home;
 

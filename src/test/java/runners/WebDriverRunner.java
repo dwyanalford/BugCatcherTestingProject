@@ -14,7 +14,7 @@ import pages.TestersDashboard;
 @CucumberOptions(
         features = "src/test/resources/",
         glue = {"stepDefinitions"},
-        tags = "")
+        tags = "@Run")
 
     public class WebDriverRunner extends AbstractTestNGCucumberTests {
         public static WebDriver driver;
